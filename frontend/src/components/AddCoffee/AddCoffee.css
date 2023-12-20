@@ -1,0 +1,10 @@
+.input_fields {
+  display: grid;
+  grid-template-columns: repeat(2, 3fr);
+  grid-column-gap: 20px;
+}
+
+.form {
+  background-color: rgb(229, 229, 231);
+  border-radius: 4px;
+}
