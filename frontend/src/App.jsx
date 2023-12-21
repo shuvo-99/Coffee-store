@@ -1,9 +1,12 @@
 import { Link, useLoaderData } from "react-router-dom";
 import "./App.css";
 import CoffeeCard from "./components/CoffeeCard/CoffeeCard";
+import { useState } from "react";
 
 function App() {
   const loaderdata = useLoaderData();
+
+  const [coffees, setCoffees] = useState(loaderdata);
   return (
     <div>
       {/* FIRST PART */}
@@ -50,23 +53,30 @@ function App() {
       <br />
 
       {/* CARD DISPLAY */}
-      <div className=" text-center">
-        <p>--- Sip & Savor ---</p>
-        <p className=" text-2xl mt-2">Our Popular Products</p>
-        <Link to="/addcoffee">
-          <button
-            className="btn mt-2"
-            style={{ backgroundColor: "brown", color: "white" }}
-          >
-            Add Coffee
-          </button>
-        </Link>
-      </div>
-      <br />
-      <div className="card_container">
-        {loaderdata.map((coffee) => (
-          <CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard>
-        ))}
+      <div className="card_section">
+        <div className=" text-center">
+          <p>--- Sip & Savor ---</p>
+          <p className=" text-2xl mt-2">Our Popular Products</p>
+          <Link to="/addcoffee">
+            <button
+              className="btn mt-2"
+              style={{ backgroundColor: "brown", color: "white" }}
+            >
+              Add Coffee
+            </button>
+          </Link>
+        </div>
+        <br />
+        <div className="card_container mx-10">
+          {coffees.map((coffee) => (
+            <CoffeeCard
+              key={coffee._id}
+              coffee={coffee}
+              coffees={coffees}
+              setCoffees={setCoffees}
+            ></CoffeeCard>
+          ))}
+        </div>
       </div>
     </div>
   );

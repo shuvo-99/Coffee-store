@@ -58,4 +58,10 @@
 .card_container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.card_section {
+  background-image: url("https://i.postimg.cc/fRKykBfs/1.png");
 }
